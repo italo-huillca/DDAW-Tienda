@@ -26,7 +26,7 @@ public class ProductoController extends HttpServlet {
         // Listar productos
         List<Producto> productos = productoDAO.listar();
         request.setAttribute("productos", productos);
-        request.getRequestDispatcher("/WEB-INF/views/productos.jsp").forward(request, response);
+        request.getRequestDispatcher("productos.jsp").forward(request, response);
     }
 
     @Override
