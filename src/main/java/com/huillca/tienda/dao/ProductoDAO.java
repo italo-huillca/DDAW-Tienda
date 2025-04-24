@@ -7,15 +7,17 @@ import java.util.List;
 
 public class ProductoDAO {
 
-   private Connection getConnection() throws SQLException {
-        try {
-            // Load SQLite driver explicitly
-            Class.forName("org.sqlite.JDBC");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return DriverManager.getConnection("jdbc:sqlite:C:/Users/Tecsup/Documents/NetBeansProjects/lab05/productos.db");
+private Connection getConnection() throws SQLException {
+    try {
+        // Cargar el driver de SQLite explícitamente
+        Class.forName("org.sqlite.JDBC");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
     }
+    // Ruta absoluta para Linux
+    String url = "jdbc:sqlite:/home/xdork/dev/NetBens Proyects/tienda/productos.db";
+    return DriverManager.getConnection(url);
+}
 
     // Listar todos los productos
     public List<Producto> listar() {
